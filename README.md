@@ -32,39 +32,41 @@ Before you start, make sure you have the following prerequisites:
 
   To integrate Immutable Passport, you need to register your application on the Immutable Developer Hub.
     
-    1. Go to the Immutable Developer Hub website (https://developer.immutable.com/).
-    
-    2. Sign in with your account or create a new one if you haven't already.
-    
-    3. Create a new application and follow the instructions to obtain your Passport Client ID and Secret.
+     1. Go to the Immutable Developer Hub website (https://hub.immutable.com/).
+     
+     2. Sign in with your account or create a new one if you haven't already.
+     
+     3. Create a new application and follow the instructions to obtain your Passport Client ID and Secret.
 
 ## Step 3: Installing and Initializing the Passport Client
 
   Now, let's install the Passport client and initialize it in your application.
   
-  1. Install the passport-immutable module:
-     
-      npm install passport-immutable
-     
-  3. In your index.js file, configure Passport with your Client ID and Secret:
-     
-     const passport = require('passport');
-     const { ImmutableStrategy } = require('passport-immutable');
+     1. Install the passport-immutable module:
+        
+         npm install passport-immutable
+        
+     2. In your index.js file, configure Passport with your Client ID and Secret:
+        
+         const passport = require('passport');
+         const { ImmutableStrategy } = require('passport-immutable');
+          
+         passport.use(new ImmutableStrategy({
+              clientID: 'YOUR_CLIENT_ID',
+              clientSecret: 'YOUR_CLIENT_SECRET',
+         }));
+        
+     3. Initialize Passport in your Express app:
+        
+         const express = require('express');
+         const app = express();
       
-     passport.use(new ImmutableStrategy({
-          clientID: 'YOUR_CLIENT_ID',
-          clientSecret: 'YOUR_CLIENT_SECRET',
-     }));
-     
-  3. Initialize Passport in your Express app:
-     
-     const express = require('express');
-     const app = express();
-  
-     app.use(passport.initialize());
+         app.use(passport.initialize());
      
 ## Step 4: Logging in a User with Passport
+
   Now, let's set up the user login functionality using Immutable Passport.
+  
     1. Create a route for user login:
         app.get('/login', passport.authenticate('immutable'));
     
@@ -80,24 +82,27 @@ Before you start, make sure you have the following prerequisites:
         });
         
 ## Step 5: Logging Out a User
-  Implementing user logout is straightforward. Add a route for user logout:
-  
-    app.get('/logout', (req, res) => {
-        req.logout();
-        res.redirect('/');
-    });
+
+    Implementing user logout is straightforward. Add a route for user logout:
+    
+      app.get('/logout', (req, res) => {
+          req.logout();
+          res.redirect('/');
+      });
     
 ## Step 6: Initiating a Transaction
-  To initiate a transaction using Immutable Passport, you can create a route that interacts with the Immutable X blockchain. This can include sending assets, obtaining a transaction hash, and more.
-  
-     app.get('/initiate-transaction', (req, res) => {
-         // Your transaction logic here
-     });
+
+    To initiate a transaction using Immutable Passport, you can create a route that interacts with the Immutable X blockchain. This can include sending assets, obtaining a transaction hash, and more.
+    
+       app.get('/initiate-transaction', (req, res) => {
+           // Your transaction logic here
+       });
 
 ## Step 7: Start the Application
-  Finally, start your Express server:
-  
-   node index.js
+
+   Finally, start your Express server:
    
- Your application is now integrated with Immutable Passport! Users can log in, log out, and initiate transactions securely.
+    node index.js
+    
+  Your application is now integrated with Immutable Passport! Users can log in, log out, and initiate transactions securely.
 
