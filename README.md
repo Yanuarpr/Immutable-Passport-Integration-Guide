@@ -43,9 +43,11 @@ Before you start, make sure you have the following prerequisites:
   Now, let's install the Passport client and initialize it in your application.
   
   1. Install the passport-immutable module:
+     
       npm install passport-immutable
      
-  2. In your index.js file, configure Passport with your Client ID and Secret:
+  3. In your index.js file, configure Passport with your Client ID and Secret:
+     
      const passport = require('passport');
      const { ImmutableStrategy } = require('passport-immutable');
       
@@ -55,6 +57,7 @@ Before you start, make sure you have the following prerequisites:
      }));
      
   3. Initialize Passport in your Express app:
+     
      const express = require('express');
      const app = express();
   
@@ -78,6 +81,7 @@ Before you start, make sure you have the following prerequisites:
         
 ## Step 5: Logging Out a User
   Implementing user logout is straightforward. Add a route for user logout:
+  
     app.get('/logout', (req, res) => {
         req.logout();
         res.redirect('/');
@@ -85,12 +89,15 @@ Before you start, make sure you have the following prerequisites:
     
 ## Step 6: Initiating a Transaction
   To initiate a transaction using Immutable Passport, you can create a route that interacts with the Immutable X blockchain. This can include sending assets, obtaining a transaction hash, and more.
+  
      app.get('/initiate-transaction', (req, res) => {
          // Your transaction logic here
      });
 
 ## Step 7: Start the Application
   Finally, start your Express server:
+  
    node index.js
+   
  Your application is now integrated with Immutable Passport! Users can log in, log out, and initiate transactions securely.
 
