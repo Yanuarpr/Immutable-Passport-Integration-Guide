@@ -44,6 +44,7 @@ Before you start, make sure you have the following prerequisites:
   
   1. Install the passport-immutable module:
       npm install passport-immutable
+     
   2. In your index.js file, configure Passport with your Client ID and Secret:
      const passport = require('passport');
      const { ImmutableStrategy } = require('passport-immutable');
@@ -52,11 +53,13 @@ Before you start, make sure you have the following prerequisites:
           clientID: 'YOUR_CLIENT_ID',
           clientSecret: 'YOUR_CLIENT_SECRET',
      }));
+     
   3. Initialize Passport in your Express app:
      const express = require('express');
      const app = express();
   
      app.use(passport.initialize());
+     
 ## Step 4: Logging in a User with Passport
   Now, let's set up the user login functionality using Immutable Passport.
     1. Create a route for user login:
@@ -67,6 +70,7 @@ Before you start, make sure you have the following prerequisites:
             successRedirect: '/profile',
             failureRedirect: '/',
         }));
+        
     3. Create a route to display the user's profile:
         app.get('/profile', (req, res) => {
             res.send(`Welcome, ${req.user.nickname}!`);
