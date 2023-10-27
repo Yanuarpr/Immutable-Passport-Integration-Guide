@@ -81,23 +81,12 @@ Before you start, make sure you have the following prerequisites:
     
 ## Step 6: Initiating a Transaction
   To initiate a transaction using Immutable Passport, you can create a route that interacts with the Immutable X blockchain. This can include sending assets, obtaining a transaction hash, and more.
+     app.get('/initiate-transaction', (req, res) => {
+         // Your transaction logic here
+     });
 
-javascript
-Copy code
-app.get('/initiate-transaction', (req, res) => {
-    // Your transaction logic here
-});
-Step 7: Start the Application
-Finally, start your Express server:
+## Step 7: Start the Application
+  Finally, start your Express server:
+   node index.js
+ Your application is now integrated with Immutable Passport! Users can log in, log out, and initiate transactions securely.
 
-bash
-Copy code
-node index.js
-Your application is now integrated with Immutable Passport! Users can log in, log out, and initiate transactions securely.
-
-Feel free to expand on these steps and include additional information and code snippets as needed in your GitHub repository. You can also include sample app files for a more hands-on experience. Once your guide is ready, upload it to a public GitHub repository and share the link for easy access to the complete guide and source code.
-
-css
-Copy code
-
-Make sure to provide detailed code examples and explanations in your actual guide, along with any necessary code files and a sample app to demonstrate the integration process.
